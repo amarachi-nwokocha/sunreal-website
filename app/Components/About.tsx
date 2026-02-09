@@ -21,10 +21,10 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section className="bg-[#FDF8EE]  px-6">
+    <section className="bg-[#FDF8EE] py-20 px-6">
       <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left: Slideshow */}
-        <div className="relative w-full h-[420px] rounded-2xl overflow-hidden">
+        <div className="relative w-full h-[420px]  overflow-hidden">
           {images.map((src, index) => (
             <img
               key={src}

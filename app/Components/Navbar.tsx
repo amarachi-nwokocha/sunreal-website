@@ -19,35 +19,35 @@ export default function Navbar() {
   return (
     <header
       className={clsx(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 left-0 w-full z-50",
+        "transition-all duration-700 ease-out",
         scrolled
-          ? "bg-[#FDF8EE]/90 backdrop-blur border-b border-[#959595]/20"
+          ? "bg-[#072961]/90 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       )}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
           className={clsx(
-            "text-lg font-medium tracking-wide transition-colors",
-            scrolled ? "text-[#072961]" : "text-[#FDF8EE]"
+            "font-semibold tracking-wide transition-colors",
+            "text-xl md:text-2xl",
+            "text-white"
           )}
         >
           Sunreal
         </Link>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-10 text-sm">
+        <ul className="hidden md:flex items-center gap-12">
           {["Portfolio", "About", "Contact"].map((item) => (
             <li key={item}>
               <Link
                 href={`/${item.toLowerCase()}`}
                 className={clsx(
-                  "transition-colors",
-                  scrolled
-                    ? "text-[#959595] hover:text-[#072961]"
-                    : "text-[#FDF8EE]/70 hover:text-[#FDF8EE]"
+                  "transition-colors text-lg",
+                  "text-white/80 hover:text-white"
                 )}
               >
                 {item}
@@ -56,19 +56,30 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Right actions */}
+        <div className="hidden md:flex items-center gap-6">
+          <Link
+            href="/book"
+            className={clsx(
+              "rounded-full px-6 py-3 text-base font-medium",
+              "bg-[#FDF8EE] text-[#072961]",
+              "hover:bg-white transition-colors"
+            )}
+          >
+            Book Now
+          </Link>
+        </div>
+
         {/* Mobile Toggle */}
         <button
-          className={clsx(
-            "md:hidden transition-colors",
-            scrolled ? "text-[#072961]" : "text-[#FDF8EE]"
-          )}
+          className="md:hidden text-white"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
           <div className="space-y-1.5">
-            <span className="block h-px w-6 bg-current" />
-            <span className="block h-px w-6 bg-current" />
-            <span className="block h-px w-6 bg-current" />
+            <span className="block h-px w-7 bg-current" />
+            <span className="block h-px w-7 bg-current" />
+            <span className="block h-px w-7 bg-current" />
           </div>
         </button>
       </nav>
@@ -76,21 +87,29 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={clsx(
-          "md:hidden overflow-hidden transition-all duration-300",
-          open ? "max-h-64" : "max-h-0"
+          "md:hidden overflow-hidden transition-all duration-500",
+          open ? "max-h-80" : "max-h-0"
         )}
       >
-        <div className="bg-[#FDF8EE] px-6 pb-6 space-y-4">
+        <div className="bg-[#072961] px-6 pb-6 pt-4 space-y-5">
           {["Portfolio", "About", "Contact"].map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase()}`}
-              className="block text-[#072961] text-sm"
+              className="block text-white text-lg"
               onClick={() => setOpen(false)}
             >
               {item}
             </Link>
           ))}
+
+          <Link
+            href="/book"
+            className="block w-full text-center rounded-full py-3 bg-[#FDF8EE] text-[#072961] font-medium"
+            onClick={() => setOpen(false)}
+          >
+            Book Now
+          </Link>
         </div>
       </div>
     </header>
