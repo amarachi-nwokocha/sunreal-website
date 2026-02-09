@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { interDisplay } from "./fonts";
+import { josefinSans } from "./fonts";
 import "./globals.css";
 
 
@@ -14,16 +14,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${interDisplay.variable}`}
-      >
-            {children}
-      </body>
+      <body  className={josefinSans.className}>{children}</body>
     </html>
   );
 }

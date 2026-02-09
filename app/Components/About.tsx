@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import { brittany } from "@/app/fonts";
 const images = [
  "/img4.jpg",
     "/img7.jpg",
@@ -39,7 +39,11 @@ export default function AboutSection() {
 
         {/* Right: Text */}
         <div>
-          <h2 className="text-[#072961] text-3xl md:text-4xl font-semibold mb-6">
+          {/* <h1   className={brittany.className}>
+            
+  Josefin Sans looks good 🔥
+</h1> */}
+          <h2 className="text-[#072961] brittany.className  text-3xl md:text-4xl font-semibold mb-6">
             About Sunreal Photography
           </h2>
 
