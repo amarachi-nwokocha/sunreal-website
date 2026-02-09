@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { brittany } from "@/app/fonts";
+
 const images = [
- "/img4.jpg",
-    "/img7.jpg",
-    "/img3.jpg",
+  "/img4.jpg",
+  "/img7.jpg",
+  "/img3.jpg",
   "/img2.JPG",
 ];
 
@@ -24,7 +26,13 @@ export default function AboutSection() {
     <section className="bg-[#FDF8EE] py-20 px-6">
       <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left: Slideshow */}
-        <div className="relative w-full h-[420px]  overflow-hidden">
+        <motion.div
+          className="relative w-full h-[420px] overflow-hidden"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           {images.map((src, index) => (
             <img
               key={src}
@@ -35,32 +43,53 @@ export default function AboutSection() {
               }`}
             />
           ))}
-        </div>
+        </motion.div>
 
         {/* Right: Text */}
         <div>
-          {/* <h1   className={brittany.className}>
-            
-  Josefin Sans looks good 🔥
-</h1> */}
-          <h2 className="text-[#072961] brittany.className  text-3xl md:text-4xl font-semibold mb-6">
+          <motion.h2
+            className="text-[#072961] text-3xl md:text-4xl font-semibold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             About Sunreal Photography
-          </h2>
+          </motion.h2>
 
-          <div className="w-16 h-0.5 bg-[#959595] mb-8" />
+          <motion.div
+            className="w-16 h-0.5 bg-[#959595] mb-8"
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+          />
 
-          <p className="text-[#4A4A4A] text-base md:text-lg leading-relaxed mb-6">
+          <motion.p
+            className="text-[#4A4A4A] text-base md:text-lg leading-relaxed mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          >
             Sunreal Photography is driven by the belief that every moment carries a
             story worth preserving. Through a thoughtful blend of light,
             composition, and emotion, we create imagery that feels timeless and
             deeply personal.
-          </p>
+          </motion.p>
 
-          <p className="text-[#4A4A4A] text-base md:text-lg leading-relaxed">
+          <motion.p
+            className="text-[#4A4A4A] text-base md:text-lg leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          >
             From intimate portraits to carefully curated visual narratives, our
             approach focuses on authenticity and detail. Each frame is crafted to
             reflect not just what is seen, but what is felt.
-          </p>
+          </motion.p>
         </div>
       </div>
     </section>
